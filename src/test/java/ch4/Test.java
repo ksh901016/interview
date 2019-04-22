@@ -42,4 +42,56 @@ public class Test {
         Collections.sort(numbers, new ReverserNumericalOrder());
         Assert.assertEquals(expected, numbers);
     }
+
+    @org.junit.Test
+    public void bubbleSortTest(){
+        final List<Integer> numbers = Arrays.asList(4, 7, 1, 6, 3, 5, 4);
+        final List<Integer> expected = Arrays.asList(1, 3, 4, 4, 5, 6, 7);
+
+        bubbleSort(numbers);
+        Assert.assertEquals(expected, numbers);
+    }
+
+    @org.junit.Test
+    public void insertSortTest(){
+        final List<Integer> numbers = Arrays.asList(4, 7, 1, 6, 3, 5, 4);
+        final List<Integer> expected = Arrays.asList(1, 3, 4, 4, 5, 6, 7);
+
+        Assert.assertEquals(expected, insertSort(numbers));
+    }
+
+    @org.junit.Test
+    public void quickSortTest(){
+        final List<Integer> numbers = Arrays.asList(4, 7, 1, 6, 3, 5, 4);
+        final List<Integer> expected = Arrays.asList(1, 3, 4, 4, 5, 6, 7);
+
+        Assert.assertEquals(expected, quickSortTest(numbers));
+    }
+
+    @org.junit.Test
+    public void mergeSortTest(){
+        final List<Integer> numbers = Arrays.asList(4, 7, 1, 6, 3, 5, 4);
+        final List<Integer> expected = Arrays.asList(1, 3, 4, 4, 5, 6, 7);
+
+        Assert.assertEquals(expected, mergeSort(numbers));
+    }
+
+    public void bubbleSort(List<Integer> list){
+
+    }
+
+    public List<Integer> insertSort(List<Integer> list){
+        // LinkedList를 반환할 것 (새로운 리스트를 생성)
+        return null;
+    }
+
+    public List<Integer> quickSortTest(List<Integer> list){
+        // 재귀호출로 구현할 것
+        return null;
+    }
+
+    public List<Integer> mergeSort(List<Integer> list){
+        // 재귀호출로 구현할 것
+        return null;
+    }
 }
