@@ -1,4 +1,4 @@
-package ch4;
+package 기본알고리즘;
 
 import org.junit.Assert;
 

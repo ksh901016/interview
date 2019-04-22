@@ -1,4 +1,4 @@
-package ch4;
+package 기본알고리즘;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ public class Sort {
         }
 
         if(value < comparison){
-            binarySearch(numbers.subList(0, numbers.size()/2), value);
+            return binarySearch(numbers.subList(0, numbers.size()/2), value);
         }else{
-            binarySearch(numbers.subList(numbers.size()/2 + 1, numbers.size() + 1), value);
+            return binarySearch(numbers.subList(numbers.size()/2 + 1, numbers.size() + 1), value);
         }
     }
 }
