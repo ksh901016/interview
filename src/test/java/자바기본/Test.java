@@ -33,4 +33,27 @@ public class Test {
         list.clear();
         Assert.assertEquals(0, list.size());
     }
+
+    @org.junit.Test
+    public void staticVariableAccess(){
+        Assert.assertEquals(ExampleClass.EXAMPLE_VALUE, 6);
+
+        ExampleClass c1 = new ExampleClass();
+        ExampleClass c2 = new ExampleClass();
+        c2.EXAMPLE_VALUE = 22; // 가능하지만 추천x
+        Assert.assertEquals(ExampleClass.EXAMPLE_VALUE, 22);
+        Assert.assertEquals(c2.EXAMPLE_VALUE, 22);
+    }
+
+    @org.junit.Test
+    public void polymorphicList(){
+        List<Rectangle> rectangles = new ArrayList<>(3);
+        rectangles.add(new Rectangle(5, 1));
+        rectangles.add(new Rectangle(2, 10));
+        rectangles.add(new Square(9));
+
+        Assert.assertEquals(rectangles.get(0).area(), 5);
+        Assert.assertEquals(rectangles.get(1).area(), 20);
+        Assert.assertEquals(rectangles.get(2).area(), 81);
+    }
 }
