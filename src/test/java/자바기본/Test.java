@@ -56,4 +56,57 @@ public class Test {
         Assert.assertEquals(rectangles.get(1).area(), 20);
         Assert.assertEquals(rectangles.get(2).area(), 81);
     }
+
+    @org.junit.Test
+    public void stringCreation(){
+        String helloString1 = new String("Hello World!");
+        String helloString2 = "Hello World!";
+
+        Assert.assertEquals(helloString1, helloString2);
+    }
+
+    @org.junit.Test
+    public void stringChanges(){
+        final String greeting = "Good Morning, Corn";
+        final String substring = greeting.substring(0, 4);
+
+        Assert.assertTrue(substring.equals("Good"));
+        Assert.assertFalse(greeting.equals(substring));
+        Assert.assertTrue(greeting.equals("Good Morning, Corn"));
+    }
+
+    @org.junit.Test
+    public void intEquality(){
+        // new String을 명시적으로 호출해서 인스턴스가 다른 메모리 위치에 있게 함
+        final String str1 = new String("100");
+        final String str2 = new String("100");
+
+        Assert.assertFalse(str1 == str2);
+        Assert.assertTrue(str1.equals(str2));
+
+        final Integer int1 = Integer.valueOf(str1);
+        final Integer int2 = Integer.valueOf(str2);
+        Assert.assertTrue(int1 == int2);
+    }
+
+    @org.junit.Test
+    public void testStringEquality(){
+        final String literal = "Hello";
+        final String object = new String("Hello");
+
+        Assert.assertTrue(literal.equals(object));
+        Assert.assertFalse(literal == object);
+    }
+
+    @org.junit.Test
+    public void testStringIntern(){
+        final String literal = "Hello";
+        final String object = new String("Hello");
+        final String intern = literal.intern();
+
+        Assert.assertTrue(literal.equals(object));
+        Assert.assertFalse(literal == object);
+        Assert.assertTrue(literal.equals(intern));
+        Assert.assertTrue(literal == intern);
+    }
 }
