@@ -3,6 +3,8 @@ package 자바기본;
 import org.junit.Assert;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class Test {
@@ -108,5 +110,26 @@ public class Test {
         Assert.assertFalse(literal == object);
         Assert.assertTrue(literal.equals(intern));
         Assert.assertTrue(literal == intern);
+    }
+
+    @org.junit.Test
+    public void showLinkedHashmapProperties(){
+        final LinkedHashMap<Integer, String> linkedHashMap
+                = new LinkedHashMap<>();
+        linkedHashMap.put(1, "One");
+        linkedHashMap.put(2, "Two");
+        linkedHashMap.put(3, "Three");
+        linkedHashMap.put(4, "Four");
+        linkedHashMap.put(5, "Five");
+
+        Assert.assertEquals("Five", linkedHashMap.get(5)); // map처럼 동작
+
+        // 삽입 순서를 보장
+        final Iterator<Integer> keyIterator = linkedHashMap.keySet().iterator();
+        Assert.assertEquals("One", linkedHashMap.get(keyIterator.next()));
+        Assert.assertEquals("Two", linkedHashMap.get(keyIterator.next()));
+        Assert.assertEquals("Three", linkedHashMap.get(keyIterator.next()));
+        Assert.assertEquals("Four", linkedHashMap.get(keyIterator.next()));
+        Assert.assertEquals("Five", linkedHashMap.get(keyIterator.next()));
     }
 }

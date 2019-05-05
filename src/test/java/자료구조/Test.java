@@ -30,4 +30,14 @@ public class Test {
         Assert.assertEquals("third", queue.peek());
         Assert.assertEquals("third", queue.remove());
     }
+
+    @org.junit.Test
+    public void createTree(){
+        final SimpleTree<Integer> tree = new SimpleTree<>(7, null, null);
+        tree.insert(3);
+        tree.insert(9);
+        tree.insert(10);
+        Assert.assertTrue(tree.search(10));
+        Assert.assertEquals(Integer.valueOf(10), tree.getRight().getRight().getValue());
+    }
 }
